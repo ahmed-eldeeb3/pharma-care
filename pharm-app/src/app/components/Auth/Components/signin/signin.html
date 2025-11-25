@@ -1,0 +1,65 @@
+<!-- signin.html -->
+<section class="py-5" style="background: #e8f5e9;"> 
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-lg rounded-4 border-0">
+            <div class="card-header text-center bg-success text-white fs-4 fw-bold rounded-top-4">
+                Sign In
+            </div>
+            <div class="card-body p-4">
+                <!-- Error Message -->
+                @if (errorMessage) {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ errorMessage }}
+                    <button type="button" class="btn-close" (click)="errorMessage = ''"></button>
+                </div>
+                }
+
+                <form [formGroup]="logForm" (ngSubmit)="signIn()">
+                
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">Email Address</label>
+                    <input formControlName="email" id="email" type="email" class="form-control form-control-lg" placeholder="Enter your email">
+                    @if (logForm.get('email')?.invalid && logForm.get('email')?.touched) {
+                    <div class="text-danger mt-1 small">
+                        @if (logForm.get('email')?.getError('required')) {
+                        <p>Email is required</p>
+                        }
+                        @if (logForm.get('email')?.getError('email')) {
+                        <p>Invalid email format</p>
+                        }
+                    </div>
+                    }
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-semibold">Password</label>
+                    <input formControlName="password" id="password" type="password" class="form-control form-control-lg" placeholder="Enter your password">
+                    @if (logForm.get('password')?.invalid && logForm.get('password')?.touched) {
+                    <div class="text-danger mt-1 small">
+                        @if (logForm.get('password')?.getError('required')) {
+                        <p>Password is required</p>
+                        }
+                    </div>
+                    }
+                </div>
+
+                <button class="btn btn-success w-100 btn-lg fw-semibold" [disabled]="!logForm.valid || isLoading">
+                    @if (isLoading) {
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    Signing In...
+                    } @else {
+                    Sign In
+                    }
+                </button>
+                </form>
+
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
