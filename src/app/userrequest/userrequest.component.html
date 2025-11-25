@@ -1,0 +1,41 @@
+<!-- request-medicine.component.html (مقتطفات مختصرة) -->
+<input formControlName="drugName" placeholder="Drug Name" />
+
+<select formControlName="dosage">
+  <option *ngFor="let d of dosageOptions" [value]="d">{{ d }}</option>
+</select>
+
+<input type="number" formControlName="quantity" />
+
+<label class="switch">
+  <input type="checkbox" formControlName="acceptAlternative" />
+  <span>Accept alternative medicine?</span>
+</label>
+
+<button type="button" (click)="useMyLocation()">Use My Location</button>
+
+<input #addressInput type="text" formControlName="locationText" placeholder="Type address or pick on map" />
+
+<google-map
+  height="300px"
+  width="100%"
+  [center]="center"
+  [zoom]="zoom"
+  [options]="mapOptions"
+  (mapClick)="onMapClick($event)"
+>
+  <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+</google-map>
+
+<label>
+  <input type="radio" value="pickup" formControlName="deliveryMethod" /> Pick up
+</label>
+<label>
+  <input type="radio" value="home" formControlName="deliveryMethod" /> Home delivery
+</label>
+
+<input formControlName="phone" placeholder="Phone (if delivery)" />
+
+<input type="file" (change)="onFileSelected($event)" />
+
+<button (click)="submit()">SUBMIT REQUEST</button>
