@@ -1,0 +1,62 @@
+<div class="container mt-4">
+  <button class="btn btn-outline-secondary mb-4" (click)="goBack()">
+    Back to Search
+  </button>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <img 
+          [src]="medicine?.image" 
+          class="card-img-top img-fluid" 
+          [alt]="medicine?.name"
+          style="max-height: 500px; object-fit: contain;"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="card-title text-primary mb-3">{{ medicine?.name }}</h2>
+          
+          <div class="mb-4">
+            <h5 class="text-secondary">Description</h5>
+            <p class="card-text">{{ medicine?.description }}</p>
+          </div>
+
+          <div class="mb-4">
+            <h5 class="text-secondary">Available at</h5>
+            <p class="fs-5 text-success">{{ medicine?.location }}</p>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-success btn-lg" (click)="addToCart()">
+              Add to Cart - ${{ getPrice() }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0"> Pharmacy Location</h5>
+        </div>
+        <div class="card-body">
+          <div class="map-placeholder bg-light rounded p-5 text-center">
+            <h5 class="text-muted">Map showing location of {{ medicine?.location }}</h5>
+            <p class="text-muted">{{ medicine?.location }}, Cairo, Egypt</p>
+            
+            <button class="btn btn-outline-primary mt-3" (click)="openGoogleMaps()">
+              Open in Google Maps
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
