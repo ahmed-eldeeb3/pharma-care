@@ -1,0 +1,194 @@
+<div class="container-fluid p-0">
+    <div class="main-wrapper">
+        <header class="d-flex justify-content-between align-items-center p-3 p-sm-4 border-bottom">
+            <div class="d-flex align-items-center gap-3">
+                <div class="logo-icon-wrapper text-white d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-capsules"></i>
+                </div>
+                <h1 class="h5 fw-bold m-0">Pharmacare</h1>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="d-none d-sm-flex align-items-center gap-2 text-decoration-none text-secondary">
+                    <i class="fa-solid fa-user"></i>
+                    <span>My Account</span>
+                </a>
+                <a href="#" class="btn btn-success rounded-pill px-3">Logout</a>
+            </div>
+        </header> 
+
+        <div class="row g-0">
+            <nav class="col-lg-2 border-end p-4 left-nav-col">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Pharmacy Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Order History</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-secondary">My Prescriptions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <main class="col-lg-7 p-4 p-lg-5 main-content-col">
+                <h2 class="fw-bold display-6">Get in Touch</h2>
+                <p class="text-secondary fs-6 mt-1">We're here to help. Send us a message or find our contact details below.</p>
+                
+                <div class="row mt-5">
+                    
+                    <div class="col-md-6 mb-5 mb-md-0">
+                        
+                        <form [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+                            
+                            <div class="mb-3">
+                                <label for="full-name" class="form-label">Full Name</label>
+                                <input type="text" id="full-name" class="form-control rounded-3" placeholder="Ahmed Ali" 
+                                       formControlName="fullName" 
+                                       [class.is-invalid]="submitted && f['fullName'].errors"
+                                       [class.is-valid]="submitted && !f['fullName'].errors"> 
+            
+                                <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['fullName'].errors['required']">Full name is required.</div>
+                                    <div *ngIf="f['fullName'].errors['minlength']">Must be at least 3 characters.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control rounded-3" placeholder="you@example.com" 
+                                       formControlName="email"
+                                       [class.is-invalid]="submitted && f['email'].errors"
+                                       [class.is-valid]="submitted && !f['email'].errors">
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">Email is required.</div>
+                                    <div *ngIf="f['email'].errors['email']">Please enter a valid email.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" class="form-control rounded-3" placeholder="+20 11 56840284"
+                                       formControlName="phone"
+                                       [class.is-invalid]="submitted && f['phone'].errors"
+                                       [class.is-valid]="submitted && !f['phone'].errors">
+                                </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" class="form-control rounded-3" placeholder="Question about my order" 
+                                       formControlName="subject"
+                                       [class.is-invalid]="submitted && f['subject'].errors"
+                                       [class.is-valid]="submitted && !f['subject'].errors">
+                                <div *ngIf="submitted && f['subject'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['subject'].errors['required']">Subject is required.</div>
+                                    <div *ngIf="f['subject'].errors['minlength']">Must be at least 3 characters.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea id="message" rows="5" class="form-control rounded-3" placeholder="Write your message here..." 
+                                          formControlName="message"
+                                          [class.is-invalid]="submitted && f['message'].errors"
+                                          [class.is-valid]="submitted && !f['message'].errors"></textarea>
+                                <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+                                     <div *ngIf="f['message'].errors['required']">Message cannot be empty.</div>
+                                     <div *ngIf="f['message'].errors['minlength']">Must be at least 5 characters.</div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100 py-3 fw-bold mt-2 rounded-3">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="col-md-6 ps-md-5">
+                        <h3 class="fw-bold fs-4">Our Information</h3>
+                        <div class="mt-4 d-flex flex-column gap-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="info-icon-wrapper">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold fs-6">Call Us</h4>
+                                    <a href="tel:+201156840284" class="text-secondary text-decoration-none">+20 11 56840284</a>
+                                </div>
+                            </div>
+                             <div class="d-flex align-items-start gap-3">
+                                <div class="info-icon-wrapper">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold fs-6">Email Us</h4>
+
+                                    <a href="mailto:support&#64;Pharmacare.com" class="text-secondary text-decoration-none">support&#64;Pharmacare.com</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="info-icon-wrapper">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold fs-6">Visit Us</h4>
+                                    <p class="text-secondary m-0">123 Health St, Banha City, Egypt</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="info-icon-wrapper">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold fs-6">Opening Hours</h4>
+                                    <p class="text-secondary m-0">Monday-Friday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-secondary m-0">Friday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="col-lg-3 bg-light p-4 right-sidebar-col">
+                 <h3 class="fw-bold fs-5">Featured Medicines</h3>
+                 <div class="row row-cols-2 g-3 mt-2">
+                    <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm rounded-3">
+                            <img src="/assets/img2.png" class="card-img-top p-2 rounded-top-3" alt="Medicine">
+                            <div class="card-body p-2">
+                                <h4 class="card-title fs-6 fw-semibold">Product Name</h4>
+                                <p class="card-text small text-secondary">Paracetamol</p>
+                                <button class="btn btn-success-subtle btn-sm w-100 fw-bold rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm rounded-3">
+                            <img src="/assets/img3.png" class="card-img-top p-2 rounded-top-3" alt="Medicine">
+                            <div class="card-body p-2">
+                                <h4 class="card-title fs-6 fw-semibold">Product Name</h4>
+                                <p class="card-text small text-secondary">Ibuprofen</p>
+                                <button class="btn btn-success-subtle btn-sm w-100 fw-bold rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm rounded-3">
+                            <img src="/assets/img1.png" class="card-img-top p-2 rounded-top-3" alt="Medicine">
+                            <div class="card-body p-2">
+                                <h4 class="card-title fs-6 fw-semibold">Product Name</h4>
+                                <p class="card-text small text-secondary">Aspirin</p>
+                                <button class="btn btn-success-subtle btn-sm w-100 fw-bold rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="card h-100 text-center border-0 shadow-sm rounded-3">
+                            <img src="/assets/img1.png" class="card-img-top p-2 rounded-top-3" alt="Medicine">
+                            <div class="card-body p-2">
+                                <h4 class="card-title fs-6 fw-semibold">Product Name</h4>
+                                <p class="card-text small text-secondary">Loratadine</p>
+                                <button class="btn btn-success-subtle btn-sm w-100 fw-bold rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </aside>
+        </div>
+    </div>
+</div>

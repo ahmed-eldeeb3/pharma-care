@@ -1,16 +1,19 @@
 import { Routes } from '@angular/router';
 
+// ============ Team Imports ============
 import { OrderhisComponentComponent } from './order-history/component/orderhis-component/orderhis-component.component';
 import { Orderdetails1Component } from './order-history/component/orderdetails1/orderdetails1.component';
 import { Orderdetails2Component } from './order-history/component/orderdetails-2/orderdetails-2.component';
 import { Orderdetails3Component } from './order-history/component/orderdetails-3/orderdetails-3.component';
-
-
 import { UserrequestComponent } from './userrequest/userrequest.component';
+
+// ============ Contact Import ============
+import { ContactComponent } from './contact/contact/contact.component';
+
 
 export const routes: Routes = [
 
-  // ========== Home Redirect ==========
+  // ========== Home Redirect (Team's Default) ==========
   { path: '', redirectTo: 'history', pathMatch: 'full' },
 
   // ========== Order History ==========
@@ -24,6 +27,9 @@ export const routes: Routes = [
   // ========== User Request ==========
   { path: 'request', component: UserrequestComponent },
 
-  // ========== Wildcard ==========
+  // ========== Contact Page ==========
+  { path: 'contact', component: ContactComponent },
+
+  // ========== Wildcard (Must be last) ==========
   { path: '**', redirectTo: 'history' }
 ];
