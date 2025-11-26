@@ -1,41 +1,69 @@
-<!-- request-medicine.component.html (مقتطفات مختصرة) -->
-<input formControlName="drugName" placeholder="Drug Name" />
+<div class="card">
+  <h2 class="title">Request Medicine</h2>
 
-<select formControlName="dosage">
-  <option *ngFor="let d of dosageOptions" [value]="d">{{ d }}</option>
-</select>
+  <!-- Drug Name -->
+  <label>Drug Name</label>
+  <input type="text" formControlName="drugName" class="input" />
 
-<input type="number" formControlName="quantity" />
+  <!-- Dosage -->
+  <label>Dosage</label>
+  <select formControlName="dosage" class="input">
+    <option value="1mg">1mg</option>
+    <option value="2mg">2mg</option>
+    <option value="5mg">5mg</option>
+    <option value="5mg">20g</option>
+    <option value="5mg">25mg</option>
+    <option value="5mg">30mg</option>
+    <option value="5mg">50mg</option>
+    <option value="5mg">100mg</option>
+    <option value="5mg">400mg</option>
+    <option value="5mg">500mg</option>
+    <option value="5mg">600mg</option>
+    <option value="5mg">1000mg</option>
+  </select>
 
-<label class="switch">
-  <input type="checkbox" formControlName="acceptAlternative" />
-  <span>Accept alternative medicine?</span>
-</label>
+  <!-- Quantity -->
+  <label>Quantity</label>
+  <input type="number" formControlName="quantity" class="input" />
 
-<button type="button" (click)="useMyLocation()">Use My Location</button>
+  <!-- Alternative Switch -->
+  <label>Accept alternative medicine?</label>
+  <label class="switch">
+    <input type="checkbox" formControlName="acceptAlternative" />
+    <span class="slider"></span>
+  </label>
 
-<input #addressInput type="text" formControlName="locationText" placeholder="Type address or pick on map" />
+  <!-- Location -->
+  <label>Your Location</label>
+  <button class="location-btn" (click)="useMyLocation()">Use My Location</button>
 
-<google-map
-  height="300px"
-  width="100%"
-  [center]="center"
-  [zoom]="zoom"
-  [options]="mapOptions"
-  (mapClick)="onMapClick($event)"
->
-  <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
-</google-map>
+  <div class="map-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" class="pin" />
+    <span>{{ address }}</span>
+  </div>
 
-<label>
-  <input type="radio" value="pickup" formControlName="deliveryMethod" /> Pick up
-</label>
-<label>
-  <input type="radio" value="home" formControlName="deliveryMethod" /> Home delivery
-</label>
+  <!-- Delivery Method -->
+  <label>Delivery Method</label>
 
-<input formControlName="phone" placeholder="Phone (if delivery)" />
+  <div class="radio-group">
+    <label>
+      <input type="radio" value="pickup" formControlName="deliveryMethod" />
+      Pick up from pharmacy
+    </label>
 
-<input type="file" (change)="onFileSelected($event)" />
+    <label>
+      <input type="radio" value="delivery" formControlName="deliveryMethod" />
+      Home delivery
+    </label>
+  </div>
 
-<button (click)="submit()">SUBMIT REQUEST</button>
+  <!-- Phone -->
+  <label>Phone (if delivery):</label>
+  <input type="text" formControlName="phone" class="input" />
+
+  <!-- Upload -->
+  <label>Upload Prescription (optional)</label>
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <button class="submit-btn" (click)="submitRequest()">SUBMIT REQUEST</button>
+</div>
