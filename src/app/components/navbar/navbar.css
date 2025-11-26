@@ -1,0 +1,22 @@
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #198754 !important; 
+    cursor: pointer;
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+.nav-link .fa-cart-shopping {
+    color: #198754;
+}
