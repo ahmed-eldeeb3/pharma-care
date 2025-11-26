@@ -1,0 +1,21 @@
+.navbar {
+  width: 100%;
+  background-color: #ffffff; 
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+}
+
+.navbar a {
+  color: rgb(0, 255, 13);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #7700ff;
+}

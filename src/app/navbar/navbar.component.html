@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
+  <a class="navbar-brand">PharmaCare</a>
+
+  <button 
+    class="navbar-toggler" 
+    type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#navbarNav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+
+      <!-- Order History -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/history">Order History</a>
+      </li>
+
+      <!-- User Request -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/request">User Request</a>
+      </li>
+
+      <!-- Dropdown for Order Details -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" 
+           href="#" 
+           role="button" 
+           data-bs-toggle="dropdown">
+          Order Details
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/details1">Details 1</a></li>
+          <li><a class="dropdown-item" routerLink="/details2">Details 2</a></li>
+          <li><a class="dropdown-item" routerLink="/details3">Details 3</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>

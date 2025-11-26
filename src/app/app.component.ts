@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { UserrequestComponent } from './userrequest/userrequest.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,UserrequestComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] 
+  imports: [RouterOutlet, NavbarComponent],
+  template: `
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent {
-  title = 'pharmacare';
-}
+export class AppComponent {}
