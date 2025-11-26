@@ -1,0 +1,12 @@
+.delivered{
+    color: green;
+    background-color: rgba(0, 136, 255, 0.316);
+}
+.pending{
+    color: rgba(133, 133, 11, 0.942);
+    background-color: rgba(255, 255, 0, 0.371);
+}
+.cancel{
+    color: gray;
+    background-color: rgba(128, 128, 128, 0.268);
+}
