@@ -1,0 +1,146 @@
+/* ===== General body styling ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+/* ===== Remove extra spacing around container ===== */
+.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ===== Main wrapper styling ===== */
+.main-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none;
+    box-shadow: none;
+}
+
+/* ===== Header Section ===== */
+.logo-icon-wrapper {
+    background-color: #198754; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+}
+
+/* ===== Left Navigation ===== */
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link {
+    background-color: #198754; 
+}
+
+.nav-pills .nav-link:not(.active) {
+    color: #6c757d; 
+}
+
+/* ===== Contact Info Icons ===== */
+.info-icon-wrapper {
+    background-color: #e2e8f0; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #198754; 
+    flex-shrink: 0; 
+}
+
+/* ===== Right Sidebar ===== */
+.right-sidebar-col {
+    background-color: #198754;
+}
+
+/* ===== Card Styling ===== */
+
+.right-sidebar-col .card {
+    background-color: #b4ebcb;
+    border: 1px solid #c3e6cb;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.right-sidebar-col .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.2);
+}
+
+.right-sidebar-col .card .btn {
+    background-color: #198754;
+    color: #fff;
+    border: none;
+}
+
+.right-sidebar-col .card .btn:hover {
+    background-color: #157347;
+}
+
+/* .card {
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+} */
+
+/* ===== Responsive adjustments ===== */
+/* @media (max-width: 991.98px) {
+    .left-nav-col, .right-sidebar-col {
+        display: none;
+    }
+
+    .main-content-col {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+} */
+
+
+
+@media (max-width: 991.98px) {
+    .left-nav-col {
+        display: none;
+    }
+
+    .main-content-col {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .right-sidebar-col {
+        order: 3;
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        background-color: #f8f9fa;
+        padding: 2rem 1rem;
+    }
+
+    .right-sidebar-col h3 {
+        color: #198754;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .right-sidebar-col .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
+    .right-sidebar-col .card {
+        background-color: #b4ebcb;
+    }
+}
