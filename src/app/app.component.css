@@ -1,0 +1,19 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+}
+
+app-sidebar {
+  width: 230px; /* لازم يطابق عرض الـ sidebar */
+  flex-shrink: 0;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 25px;
+  margin-left: 10px;
+}
+.full-width {
+  margin-left: 0 !important;
+  width: 100% !important;
+}

@@ -1,3 +1,12 @@
-
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+
+<div class="layout">
+
+  <!-- السايدبار يظهر فقط عندما hideSidebar = false -->
+  <app-sidebar *ngIf="!hideSidebar"></app-sidebar>
+
+  <div class="content" [class.full-width]="hideSidebar">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

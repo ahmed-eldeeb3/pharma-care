@@ -1,0 +1,50 @@
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    background: #ffffff;
+    padding: 20px;
+    border-right: 1px solid #e6e6e6;
+    position: fixed;
+    left: 0;
+    top: 70px; /* 👈 يسيب مساحة للـ Navbar */
+    z-index: 5; /* 👈 تحت الـ Navbar */
+    overflow-y: auto;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #1f8b4c;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #444;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+a:hover {
+    background: #e9f7ef;
+    color: #1f8b4c;
+}
+
+.active {
+    background: #dff5e6;
+    color: #1f8b4c;
+    font-weight: bold;
+}

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-userrequest',
-  standalone: true,   // ← أضف هذا السطر
+  standalone: true,   
   templateUrl: './userrequest.component.html',
   styleUrls: ['./userrequest.component.css']
 })
