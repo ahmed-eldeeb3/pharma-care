@@ -1,21 +1,22 @@
-.navbar {
-  width: 100%;
-  background-color: #ffffff; 
-  padding: 15px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }
 
-.navbar a {
-  color: rgb(0, 255, 13);
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
+.nav-link {
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.navbar a:hover {
-  color: #7700ff;
+.nav-link:hover {
+    color: #198754 !important; 
+    cursor: pointer;
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+.nav-link .fa-cart-shopping {
+    color: #198754;
 }

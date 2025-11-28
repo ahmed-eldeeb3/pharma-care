@@ -1,0 +1,12 @@
+.table-responsive {
+  max-height: 450px; 
+  overflow-y: auto;
+}
+
+.card .badge {
+  font-size: 0.9rem;
+}
+
+.card {
+  border-radius: 12px;
+}
