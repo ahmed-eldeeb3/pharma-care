@@ -8,7 +8,8 @@ import { CartService, CartItem } from '../Services/cart.service';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: '../cart/cart.component.html',
-  styleUrls: ['../cart/cart.component.css']
+  styleUrls: ['./cart.component.css']
+
 })
 export class CartComponent {
   private cartService = inject(CartService);

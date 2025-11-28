@@ -35,7 +35,7 @@ export class AuthService {
     this.checkAuthState();
   }
 
-  // Safe localStorage getter
+  // للتأكد إننا بنشتغل على المتصفح فقط (علشان SSR)
   private get localStorageAvailable() {
     return isPlatformBrowser(this.platformId) && typeof localStorage !== 'undefined';
   }
@@ -52,63 +52,68 @@ export class AuthService {
     }
   }
 
+  // -------- SIGN UP --------
   serSignUp(payload: UserSignUp): Observable<any> {
-    const signupData = { ...payload };
-
-    return this.http.post(`${this.API_URL}/api/v1/auth/signup`, signupData);
+    return this.http.post(`${this.API_URL}/api/v1/auth/signup`, payload);
   }
 
+  // -------- SIGN IN --------
   serSignIn(payload: UserSignIn): Observable<any> {
     return this.http.post(`${this.API_URL}/api/v1/auth/signin`, payload).pipe(
       tap((response: any) => {
         if (response.token) {
           this.handleAuthSuccess(response);
         } else {
-          console.error('No token in response:', response);
+          console.error('No token returned:', response);
         }
       })
     );
   }
 
+  // -------- HANDLE SUCCESS LOGIN --------
   private handleAuthSuccess(response: any) {
-
     if (!this.localStorageAvailable) return;
 
-    if (!response.token || !response.user) {
-      console.error('Invalid response structure:', response);
+    const { token, user } = response;
+
+    if (!token || !user) {
+      console.error('Invalid login response:', response);
       return;
     }
 
-    // Save token
-    localStorage.setItem('auth_token', response.token);
+    // حفظ بيانات الدخول
+    localStorage.setItem('auth_token', token);
 
-    // Save user data
     const userData = {
-      _id: response.user._id,
-      name: response.user.name,
-      email: response.user.email,
-      role: response.user.role || 'user'
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role || 'user'
     };
 
     localStorage.setItem('user_data', JSON.stringify(userData));
 
-    // Update signals
+    // تحديث الإشارات Signals
     this.isLoggedIn.set(true);
     this.currentUser.set(userData);
+
+    // 👈 بعد تسجيل الدخول... يروح للهوم
+    this.router.navigate(['/home']);
   }
 
+  // -------- LOGOUT --------
   logout() {
     if (this.localStorageAvailable) {
       localStorage.removeItem('auth_token');
       localStorage.removeItem('user_data');
       localStorage.removeItem('cart_items');
       localStorage.removeItem('cart');
-
       this.clearCartData();
     }
 
     this.isLoggedIn.set(false);
     this.currentUser.set(null);
+
     this.router.navigate(['/signin']);
   }
 
@@ -126,6 +131,7 @@ export class AuthService {
     keysToRemove.forEach(key => localStorage.removeItem(key));
   }
 
+  // -------- HELPERS --------
   getCurrentUser() {
     return this.currentUser();
   }
