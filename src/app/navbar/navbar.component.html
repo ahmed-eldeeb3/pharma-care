@@ -15,12 +15,12 @@
 
       <!-- Order History -->
       <li class="nav-item">
-        <a class="nav-link" routerLink="/history">Order History</a>
+        <a class="nav-link" routerLink="/history" routerLinkActive="active">Order History</a>
       </li>
 
       <!-- User Request -->
       <li class="nav-item">
-        <a class="nav-link" routerLink="/request">User Request</a>
+        <a class="nav-link" routerLink="/user-request" routerLinkActive="active">User Request</a>
       </li>
 
       <!-- Dropdown for Order Details -->
@@ -32,10 +32,15 @@
           Order Details
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" routerLink="/details1">Details 1</a></li>
-          <li><a class="dropdown-item" routerLink="/details2">Details 2</a></li>
-          <li><a class="dropdown-item" routerLink="/details3">Details 3</a></li>
+          <li><a class="dropdown-item" routerLink="/history/details/1">Details 1</a></li>
+          <li><a class="dropdown-item" routerLink="/history/details/2">Details 2</a></li>
+          <li><a class="dropdown-item" routerLink="/history/details/3">Details 3</a></li>
         </ul>
+      </li>
+
+      <!-- Contact Page -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
       </li>
 
     </ul>

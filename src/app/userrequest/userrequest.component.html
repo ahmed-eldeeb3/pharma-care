@@ -1,69 +1,116 @@
-<div class="card">
-  <h2 class="title">Request Medicine</h2>
+<header>
+    <div class="header-content">
+        <div class="logo">PharmaCare</div>
+        <nav class="header-nav">
+            <a href="#">Order History</a>
+            <a href="#">User Request</a>
+            <a href="#">Order Details ▾</a>
+            <a href="#">Contact</a>
+            <a href="#" class="my-account">My Account</a>
+            <button class="logout-btn">Logout</button>
+        </nav>
+    </div>
+</header>
 
-  <!-- Drug Name -->
-  <label>Drug Name</label>
-  <input type="text" formControlName="drugName" class="input" />
+<div class="main-page-container">
 
-  <!-- Dosage -->
-  <label>Dosage</label>
-  <select formControlName="dosage" class="input">
-    <option value="1mg">1mg</option>
-    <option value="2mg">2mg</option>
-    <option value="5mg">5mg</option>
-    <option value="5mg">20g</option>
-    <option value="5mg">25mg</option>
-    <option value="5mg">30mg</option>
-    <option value="5mg">50mg</option>
-    <option value="5mg">100mg</option>
-    <option value="5mg">400mg</option>
-    <option value="5mg">500mg</option>
-    <option value="5mg">600mg</option>
-    <option value="5mg">1000mg</option>
-  </select>
+    <aside class="sidebar-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">User Reqest</a></li>
+            <li><a href="#">Order History</a></li>
+            <li><a href="#">My Prescriptions</a></li>
+            <li class="active"><a href="#">Contact Us</a></li>
+            </ul>
+    </aside>
 
-  <!-- Quantity -->
-  <label>Quantity</label>
-  <input type="number" formControlName="quantity" class="input" />
+    <main class="request-medicine-form">
+        <h1 class="main-title">Request Medicine</h1>
 
-  <!-- Alternative Switch -->
-  <label>Accept alternative medicine?</label>
-  <label class="switch">
-    <input type="checkbox" formControlName="acceptAlternative" />
-    <span class="slider"></span>
-  </label>
+        <div class="form-section">
+            <label>Drug Name</label>
+            <input type="text" formControlName="drugName" class="input" />
+        </div>
 
-  <!-- Location -->
-  <label>Your Location</label>
-  <button class="location-btn" (click)="useMyLocation()">Use My Location</button>
+        <div class="form-section">
+            <label>Dosage</label>
+            <select formControlName="dosage" class="input">
+                <option value="1mg">1mg</option>
+                <option value="2mg">2mg</option>
+                <option value="5mg">5mg</option>
+                <option value="20g">20g</option>
+                <option value="25mg">25mg</option>
+                <option value="30mg">30mg</option>
+                <option value="50mg">50mg</option>
+                <option value="100mg">100mg</option>
+                <option value="400mg">400mg</option>
+                <option value="500mg">500mg</option>
+                <option value="600mg">600mg</option>
+                <option value="1000mg">1000mg</option>
+            </select>
+        </div>
 
-  <div class="map-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" class="pin" />
-    <span>{{ address }}</span>
-  </div>
+        <div class="form-section">
+            <label>Quantity</label>
+            <input type="number" formControlName="quantity" class="input" />
+        </div>
 
-  <!-- Delivery Method -->
-  <label>Delivery Method</label>
+        <div class="form-section alternative-switch-container">
+            <label>Accept alternative medicine?</label>
+            <label class="switch">
+                <input type="checkbox" formControlName="acceptAlternative" />
+                <span class="slider"></span>
+            </label>
+        </div>
 
-  <div class="radio-group">
-    <label>
-      <input type="radio" value="pickup" formControlName="deliveryMethod" />
-      Pick up from pharmacy
-    </label>
+        <div class="form-section">
+            <label>Your Location</label>
+            <button class="location-btn" (click)="useMyLocation()">Use My Location</button>
+            <div class="map-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" class="pin" />
+                <span>{{ address }}</span>
+            </div>
+        </div>
 
-    <label>
-      <input type="radio" value="delivery" formControlName="deliveryMethod" />
-      Home delivery
-    </label>
-  </div>
+        <div class="form-section">
+            <label>Delivery Method</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" value="pickup" formControlName="deliveryMethod" />
+                    Pick up from pharmacy
+                </label>
+                <label>
+                    <input type="radio" value="delivery" formControlName="deliveryMethod" />
+                    Home delivery
+                </label>
+            </div>
+        </div>
 
-  <!-- Phone -->
-  <label>Phone (if delivery):</label>
-  <input type="text" formControlName="phone" class="input" />
+        <div class="form-section">
+            <label>Phone (if delivery):</label>
+            <input type="text" formControlName="phone" class="input" />
+        </div>
 
-  <!-- Upload -->
-  <label>Upload Prescription (optional)</label>
-  <input type="file" (change)="onFileSelected($event)" />
+        <div class="form-section file-upload-container">
+            <label>Upload Prescription (optional)</label>
+            <input type="file" (change)="onFileSelected($event)" />
+        </div>
 
-  <button class="submit-btn" (click)="submitRequest()">SUBMIT REQUEST</button>
+        <button class="submit-btn" (click)="submitRequest()">SUBMIT REQUEST</button>
+
+    </main>
+
+    <aside class="featured-medicines">
+        <h2>Featured Medicines</h2>
+        
+        <div class="medicine-item">
+            <div class="medicine-icon"></div> <div class="details">
+                <span class="product-name">Product Name</span>
+                <span class="name">Paracetamol</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
+        </aside>
+
 </div>

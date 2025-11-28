@@ -2,7 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContactService } from '../contact.service';
-import { Contact } from '../../models/contact.model';
+
+
+interface Contact {
+    id: string;
+    fullName: string;
+    email: string;
+    phone?: string;
+    subject: string;
+    message: string;
+    createdAt: number;
+  }
 
 @Component({
   selector: 'app-contact',
