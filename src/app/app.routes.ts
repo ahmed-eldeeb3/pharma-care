@@ -13,6 +13,9 @@ import { ContactComponent } from '../app/contact/contact/contact.component';
 
 import { OrderhisComponentComponent } 
   from '../app/order-history/component/orderhis-component/orderhis-component.component';
+import { Orderdetails1Component } from './order-history/component/orderdetails1/orderdetails1.component';
+import { Orderdetails2Component } from './order-history/component/orderdetails-2/orderdetails-2.component';
+import { Orderdetails3Component } from './order-history/component/orderdetails-3/orderdetails-3.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -30,6 +33,9 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent, canActivate: [authGuard] },
 
     { path: 'order-history', component: OrderhisComponentComponent, canActivate: [authGuard] },
+    { path: 'orderdetails1', component: Orderdetails1Component, canActivate: [authGuard] },
+    { path: 'orderdetails2', component: Orderdetails2Component, canActivate: [authGuard] },
+    { path: 'orderdetails3', component: Orderdetails3Component, canActivate: [authGuard] },
 
     { path: '**', redirectTo: 'signin' }
 ];
