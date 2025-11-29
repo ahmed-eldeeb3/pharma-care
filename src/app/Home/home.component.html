@@ -98,33 +98,54 @@
 
   <!-- RESULTS -->
   <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let med of filteredMedicines">
+                <div class="medicine-card card shadow-sm h-100">
+                    <div class="card-image-container">
+                        <img 
+                            [src]="med.image" 
+                            class="card-img-top" 
+                            alt="{{ med.name }}" 
+                        />
+                        <div class="card-overlay">
+                            <span class="price-badge">${{ med.price || '15.99' }}</span>
+                        </div>
+                    </div>
 
-    <div
-      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
-      *ngFor="let med of filteredMedicines">
+                    <div class="card-body d-flex flex-column">
+                        <div class="card-header mb-2">
+                            <h5 class="card-title text-success fw-bold">{{ med.name }}</h5>
+                            <span class="category-badge">{{ med.category || 'Medicine' }}</span>
+                        </div>
+                        
+                        <p class="card-text text-secondary flex-grow-1">{{ med.description }}</p>
+                        
+                        <div class="card-details mb-3">
+                            <div class="location-info">
+                                <i class="fas fa-map-marker-alt text-success me-1"></i>
+                                <small class="text-muted">{{ med.location }}</small>
+                            </div>
+                            <div class="stock-info">
+                                <i class="fas fa-box text-success me-1"></i>
+                                <small class="text-muted">In Stock: {{ med.stock || '45' }}</small>
+                            </div>
+                        </div>
 
-      <div class="medicine-card card shadow-sm h-100">
+                        <div class="card-actions mt-auto">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-success btn-sm" 
+                                        (click)="showLocation(med)">
+                                    <i class="fas fa-map-marker-alt me-1"></i> Location
+                                </button>
+                                <button class="btn btn-success btn-sm" 
+                                        (click)="addToCart(med)">
+                                    <i class="fas fa-cart-plus me-1"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="card-image-container">
-          <img [src]="med.image" class="card-img-top" alt="{{ med.name }}">
-          <div class="card-overlay">
-            <span class="price-badge">${{ med.price || '15.99' }}</span>
-          </div>
+            
         </div>
-
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-success fw-bold">{{ med.name }}</h5>
-          <p class="card-text text-secondary flex-grow-1">{{ med.description }}</p>
-
-          <button class="btn btn-success btn-sm mt-auto" (click)="addToCart(med)">
-            <i class="fas fa-cart-plus me-1"></i> Add to Cart
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
